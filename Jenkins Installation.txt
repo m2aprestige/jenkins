@@ -1,0 +1,30 @@
+Welcome to the Jenkins Installation
+What is Jenkins? Jenkins is an open-source automation server that helps you automate parts of software development, including:
+
+Building (compiling and packaging code), Testing (running automated tests), Deploying (moving the software to production environments), and much more.
+
+Think of Jenkins as a tool that takes away the manual steps in your development process and runs them automatically.
+
+Why Jenkins? Continuous Integration (CI): Jenkins makes sure that every time you or your team makes a change in the code, it can be tested and built automatically. This helps catch bugs early.
+
+Continuous Delivery (CD): Jenkins can automatically deploy your software to a production or test environment after successful builds.
+
+Flexibility: Jenkins integrates with almost any tool out there (thanks to its plugins), from version control systems like Git to cloud services like AWS.
+
+Job: A task you want Jenkins to execute (e.g., build your code, run tests). Build: A single execution of a job. Pipeline: A more advanced way of automating a series of jobs (steps) in sequence. Agent (Node): The machine where Jenkins runs your jobs. This can be the Jenkins server itself or a separate machine.
+
+Installing Jenkins: sudo apt update sudo apt install openjdk-11-jdk -y java -version
+
+Add Jenkins Repository
+
+curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee
+/usr/share/keyrings/jenkins-keyring.asc > /dev/null echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]
+https://pkg.jenkins.io/debian binary/ | sudo tee
+/etc/apt/sources.list.d/jenkins.list > /dev/null sudo apt update sudo apt install jenkins -y sudo systemctl start jenkins sudo systemctl enable jenkins
+
+Open a web browser and go to: http://localhost:8080
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+Install Suggested Plugins Jenkins will offer you a list of suggested plugins. You can choose to install them, which will cover most of the essential Jenkins functionality. Create First Admin User After plugin installation, Jenkins will prompt you to create an admin user. Set this up with a username and password you prefer.
+
